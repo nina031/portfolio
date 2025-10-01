@@ -48,6 +48,13 @@ body {
   overflow-x: hidden;
 }
 
+/* Responsive improvements */
+@media (max-width: 640px) {
+  .floating-orb {
+    transform: scale(0.7) !important;
+  }
+}
+
 /* Ensure video background covers entire viewport */
 video {
   position: fixed !important;
