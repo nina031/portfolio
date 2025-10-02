@@ -333,8 +333,8 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              Transformer des données complexes en insights exploitables grâce à l'analyse avancée, 
-              l'apprentissage automatique et l'IA pour stimuler l'innovation et la prise de décision stratégique.
+              Transformer des données complexes en insights exploitables grâce à l&apos;analyse avancée, 
+              l&apos;apprentissage automatique et l&apos;IA pour stimuler l&apos;innovation et la prise de décision stratégique.
             </motion.p>
             
             {/* Call to Action */}
