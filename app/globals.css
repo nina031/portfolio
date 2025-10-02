@@ -142,4 +142,7 @@ video {
   body {
     @apply bg-background text-foreground;
   }
+  .font-caveat {
+    font-family: var(--font-caveat), cursive;
+  }
 }

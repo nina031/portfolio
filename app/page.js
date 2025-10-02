@@ -108,12 +108,12 @@ export default function Home() {
           transition={{ duration: 0.6 }}
         >
           <motion.div 
-            className="absolute left-6 md:left-8 text-white font-light text-xl tracking-wide"
+            className="absolute left-6 md:left-8 text-white text-xl"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <span style={{ fontFamily: '"Inter", "SF Pro Display", system-ui, sans-serif', fontWeight: '300' }}>Nina Messaoudi</span>
+<span className="font-caveat text-2xl font-semibold">Nina Messaoudi</span>
           </motion.div>
           <NavigationMenu>
             <NavigationMenuList className="gap-8">
@@ -122,7 +122,7 @@ export default function Home() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <NavigationMenuLink href="#apropos" className="text-white hover:text-white transition-all duration-300 font-medium bg-transparent hover:bg-purple-400/10 border-2 border-transparent hover:border-purple-400/60 px-4 py-2 rounded-full">
+                  <NavigationMenuLink href="#apropos" className="text-white hover:text-white focus:text-white transition-all duration-300 font-medium bg-transparent hover:bg-purple-400/10 focus:bg-purple-400/10 border-2 border-transparent hover:border-purple-400/60 focus:border-purple-400/60 px-4 py-2 rounded-full">
                     À propos
                   </NavigationMenuLink>
                 </motion.div>
@@ -132,7 +132,7 @@ export default function Home() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <NavigationMenuLink href="#projets" className="text-white hover:text-white transition-all duration-300 font-medium bg-transparent hover:bg-purple-400/10 border-2 border-transparent hover:border-purple-400/60 px-4 py-2 rounded-full">
+                  <NavigationMenuLink href="#projets" className="text-white hover:text-white focus:text-white transition-all duration-300 font-medium bg-transparent hover:bg-purple-400/10 focus:bg-purple-400/10 border-2 border-transparent hover:border-purple-400/60 focus:border-purple-400/60 px-4 py-2 rounded-full">
                     Projets
                   </NavigationMenuLink>
                 </motion.div>
@@ -142,7 +142,7 @@ export default function Home() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <NavigationMenuLink href="#competences" className="text-white hover:text-white transition-all duration-300 font-medium bg-transparent hover:bg-purple-400/10 border-2 border-transparent hover:border-purple-400/60 px-4 py-2 rounded-full">
+                  <NavigationMenuLink href="#competences" className="text-white hover:text-white focus:text-white transition-all duration-300 font-medium bg-transparent hover:bg-purple-400/10 focus:bg-purple-400/10 border-2 border-transparent hover:border-purple-400/60 focus:border-purple-400/60 px-4 py-2 rounded-full">
                     Compétences
                   </NavigationMenuLink>
                 </motion.div>
@@ -190,12 +190,12 @@ export default function Home() {
         >
           <div className="flex justify-between items-center p-4">
             <motion.div 
-              className="text-white font-light text-lg tracking-wide"
+              className="text-white text-lg"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <span style={{ fontFamily: '"Inter", "SF Pro Display", system-ui, sans-serif', fontWeight: '300' }}>Nina Messaoudi</span>
+<span className="font-caveat text-xl font-semibold">Nina Messaoudi</span>
             </motion.div>
             <motion.button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -243,7 +243,7 @@ export default function Home() {
                 <div className="px-4 py-6 space-y-4">
                   <motion.a 
                     href="#apropos" 
-                    className="block text-white hover:text-white transition-all duration-300 font-medium py-2 hover:bg-purple-400/10 border-2 border-transparent hover:border-purple-400/60 px-4 rounded-full"
+                    className="block text-white hover:text-white focus:text-white transition-all duration-300 font-medium py-2 hover:bg-purple-400/10 focus:bg-purple-400/10 border-2 border-transparent hover:border-purple-400/60 focus:border-purple-400/60 px-4 rounded-full"
                     whileHover={{ scale: 1.02, x: 5 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -251,7 +251,7 @@ export default function Home() {
                   </motion.a>
                   <motion.a 
                     href="#projets" 
-                    className="block text-white hover:text-white transition-all duration-300 font-medium py-2 hover:bg-purple-400/10 border-2 border-transparent hover:border-purple-400/60 px-4 rounded-full"
+                    className="block text-white hover:text-white focus:text-white transition-all duration-300 font-medium py-2 hover:bg-purple-400/10 focus:bg-purple-400/10 border-2 border-transparent hover:border-purple-400/60 focus:border-purple-400/60 px-4 rounded-full"
                     whileHover={{ scale: 1.02, x: 5 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -259,7 +259,7 @@ export default function Home() {
                   </motion.a>
                   <motion.a 
                     href="#competences" 
-                    className="block text-white hover:text-white transition-all duration-300 font-medium py-2 hover:bg-purple-400/10 border-2 border-transparent hover:border-purple-400/60 px-4 rounded-full"
+                    className="block text-white hover:text-white focus:text-white transition-all duration-300 font-medium py-2 hover:bg-purple-400/10 focus:bg-purple-400/10 border-2 border-transparent hover:border-purple-400/60 focus:border-purple-400/60 px-4 rounded-full"
                     whileHover={{ scale: 1.02, x: 5 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -323,7 +323,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Data Scientist & Machine Learning Engineer
+              Data Scientist & Ingénieure en Machine Learning
             </motion.h2>
             
             {/* Description */}
@@ -333,8 +333,8 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              Transforming complex data into actionable insights using advanced analytics, 
-              machine learning, and AI to drive business innovation and strategic decision-making.
+              Transformer des données complexes en insights exploitables grâce à l'analyse avancée, 
+              l'apprentissage automatique et l'IA pour stimuler l'innovation et la prise de décision stratégique.
             </motion.p>
             
             {/* Call to Action */}
