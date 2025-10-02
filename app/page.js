@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { motion } from "framer-motion"
 import {
   NavigationMenu,
   NavigationMenuList,
@@ -10,6 +11,7 @@ import {
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isEnglish, setIsEnglish] = useState(false)
 
   return (
     <div className="font-sans relative min-h-screen overflow-hidden">
@@ -99,106 +101,265 @@ export default function Home() {
       {/* Navigation */}
       <nav className="absolute top-0 left-0 right-0 z-20">
         {/* Desktop Navigation */}
-        <div className="hidden md:flex justify-center items-center p-6 md:p-8">
-          <div className="absolute left-6 md:left-8 text-white font-light text-xl tracking-wide">
+        <motion.div 
+          className="hidden md:flex justify-center items-center p-6 md:p-8"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <motion.div 
+            className="absolute left-6 md:left-8 text-white font-light text-xl tracking-wide"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             <span style={{ fontFamily: '"Inter", "SF Pro Display", system-ui, sans-serif', fontWeight: '300' }}>Nina Messaoudi</span>
-          </div>
+          </motion.div>
           <NavigationMenu>
             <NavigationMenuList className="gap-8">
               <NavigationMenuItem>
-                <NavigationMenuLink href="#apropos" className="text-white hover:text-blue-400 transition-colors duration-300 font-medium bg-transparent">
-                  À propos
-                </NavigationMenuLink>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <NavigationMenuLink href="#apropos" className="text-white hover:text-white transition-all duration-300 font-medium bg-transparent hover:bg-purple-400/10 border-2 border-transparent hover:border-purple-400/60 px-4 py-2 rounded-full">
+                    À propos
+                  </NavigationMenuLink>
+                </motion.div>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink href="#projets" className="text-white hover:text-blue-400 transition-colors duration-300 font-medium bg-transparent">
-                  Projets
-                </NavigationMenuLink>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <NavigationMenuLink href="#projets" className="text-white hover:text-white transition-all duration-300 font-medium bg-transparent hover:bg-purple-400/10 border-2 border-transparent hover:border-purple-400/60 px-4 py-2 rounded-full">
+                    Projets
+                  </NavigationMenuLink>
+                </motion.div>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink href="#competences" className="text-white hover:text-blue-400 transition-colors duration-300 font-medium bg-transparent">
-                  Compétences
-                </NavigationMenuLink>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <NavigationMenuLink href="#competences" className="text-white hover:text-white transition-all duration-300 font-medium bg-transparent hover:bg-purple-400/10 border-2 border-transparent hover:border-purple-400/60 px-4 py-2 rounded-full">
+                    Compétences
+                  </NavigationMenuLink>
+                </motion.div>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
-          <button className="absolute right-6 md:right-8 bg-gradient-to-r from-blue-500/60 via-purple-500/60 to-orange-400/60 hover:from-blue-600/70 hover:via-purple-600/70 hover:to-orange-500/70 backdrop-blur-sm text-white font-semibold py-2 px-6 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
-            Me contacter
-          </button>
-        </div>
+          <motion.div 
+            className="absolute right-6 md:right-8"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <motion.button 
+              onClick={() => setIsEnglish(!isEnglish)}
+              className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-1 py-1 transition-all duration-300 hover:bg-white/15"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <div className="flex">
+                <motion.span 
+                  className={`px-3 py-1 text-sm font-medium rounded-full transition-all duration-300 ${!isEnglish ? 'bg-gradient-to-r from-purple-500 to-orange-400 text-white shadow-lg' : 'text-white/70 hover:text-white'}`}
+                  animate={{ scale: !isEnglish ? 1.05 : 1 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                >
+                  FR
+                </motion.span>
+                <motion.span 
+                  className={`px-3 py-1 text-sm font-medium rounded-full transition-all duration-300 ${isEnglish ? 'bg-gradient-to-r from-purple-500 to-orange-400 text-white shadow-lg' : 'text-white/70 hover:text-white'}`}
+                  animate={{ scale: isEnglish ? 1.05 : 1 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                >
+                  EN
+                </motion.span>
+              </div>
+            </motion.button>
+          </motion.div>
+        </motion.div>
 
         {/* Mobile Navigation */}
-        <div className="md:hidden">
+        <motion.div 
+          className="md:hidden"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           <div className="flex justify-between items-center p-4">
-            <div className="text-white font-light text-lg tracking-wide">
+            <motion.div 
+              className="text-white font-light text-lg tracking-wide"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
               <span style={{ fontFamily: '"Inter", "SF Pro Display", system-ui, sans-serif', fontWeight: '300' }}>Nina Messaoudi</span>
-            </div>
-            <button 
+            </motion.div>
+            <motion.button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-white p-2"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <motion.svg 
+                className="w-6 h-6" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+                animate={{ rotate: isMobileMenuOpen ? 90 : 0 }}
+                transition={{ duration: 0.3 }}
+              >
                 {isMobileMenuOpen ? (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 ) : (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                 )}
-              </svg>
-            </button>
+              </motion.svg>
+            </motion.button>
           </div>
           
           {/* Mobile Menu */}
-          {isMobileMenuOpen && (
-            <div className="bg-black/90 backdrop-blur-md border-t border-white/10">
-              <div className="px-4 py-6 space-y-4">
-                <a href="#apropos" className="block text-white hover:text-blue-400 transition-colors duration-300 font-medium py-2">
-                  À propos
-                </a>
-                <a href="#projets" className="block text-white hover:text-blue-400 transition-colors duration-300 font-medium py-2">
-                  Projets
-                </a>
-                <a href="#competences" className="block text-white hover:text-blue-400 transition-colors duration-300 font-medium py-2">
-                  Compétences
-                </a>
-                <button className="w-full mt-4 bg-gradient-to-r from-blue-500/60 via-purple-500/60 to-orange-400/60 hover:from-blue-600/70 hover:via-purple-600/70 hover:to-orange-500/70 backdrop-blur-sm text-white font-semibold py-3 px-6 rounded-full transition-all duration-300">
-                  Me contacter
-                </button>
-              </div>
-            </div>
-          )}
-        </div>
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ 
+              opacity: isMobileMenuOpen ? 1 : 0,
+              height: isMobileMenuOpen ? "auto" : 0
+            }}
+            transition={{ duration: 0.3 }}
+            className="overflow-hidden"
+          >
+            {isMobileMenuOpen && (
+              <motion.div 
+                className="bg-black/90 backdrop-blur-md border-t border-white/10"
+                initial={{ y: -20 }}
+                animate={{ y: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="px-4 py-6 space-y-4">
+                  <motion.a 
+                    href="#apropos" 
+                    className="block text-white hover:text-white transition-all duration-300 font-medium py-2 hover:bg-purple-400/10 border-2 border-transparent hover:border-purple-400/60 px-4 rounded-full"
+                    whileHover={{ scale: 1.02, x: 5 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    À propos
+                  </motion.a>
+                  <motion.a 
+                    href="#projets" 
+                    className="block text-white hover:text-white transition-all duration-300 font-medium py-2 hover:bg-purple-400/10 border-2 border-transparent hover:border-purple-400/60 px-4 rounded-full"
+                    whileHover={{ scale: 1.02, x: 5 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    Projets
+                  </motion.a>
+                  <motion.a 
+                    href="#competences" 
+                    className="block text-white hover:text-white transition-all duration-300 font-medium py-2 hover:bg-purple-400/10 border-2 border-transparent hover:border-purple-400/60 px-4 rounded-full"
+                    whileHover={{ scale: 1.02, x: 5 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    Compétences
+                  </motion.a>
+                  <div className="w-full mt-4 flex justify-center">
+                    <motion.button 
+                      onClick={() => setIsEnglish(!isEnglish)}
+                      className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-1 py-1 transition-all duration-300 hover:bg-white/15"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <div className="flex">
+                        <motion.span 
+                          className={`px-3 py-1 text-sm font-medium rounded-full transition-all duration-300 ${!isEnglish ? 'bg-gradient-to-r from-purple-500 to-orange-400 text-white shadow-lg' : 'text-white/70 hover:text-white'}`}
+                          animate={{ scale: !isEnglish ? 1.05 : 1 }}
+                          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                        >
+                          FR
+                        </motion.span>
+                        <motion.span 
+                          className={`px-3 py-1 text-sm font-medium rounded-full transition-all duration-300 ${isEnglish ? 'bg-gradient-to-r from-purple-500 to-orange-400 text-white shadow-lg' : 'text-white/70 hover:text-white'}`}
+                          animate={{ scale: isEnglish ? 1.05 : 1 }}
+                          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                        >
+                          EN
+                        </motion.span>
+                      </div>
+                    </motion.button>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </motion.div>
+        </motion.div>
       </nav>
 
       {/* Content Overlay */}
       <div className="relative z-10 min-h-screen bg-black/30">
         <main className="flex flex-col justify-center min-h-screen max-w-4xl mx-auto px-4 sm:px-6 md:px-8 lg:ml-[10%] lg:px-8 py-20 sm:py-24 md:py-20">
-          <div className="space-y-6 sm:space-y-8">
+          <motion.div 
+            className="space-y-6 sm:space-y-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+          >
             {/* Main Headline */}
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight md:whitespace-nowrap">
-              Bonjour, je suis <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-orange-400/70 bg-clip-text text-transparent">Nina Messaoudi</span>
-            </h1>
+            <motion.h1 
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight md:whitespace-nowrap"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              Bonjour, je suis <span className="bg-gradient-to-r from-purple-500 to-orange-400/70 bg-clip-text text-transparent">Nina Messaoudi</span>
+            </motion.h1>
             
             {/* Subheadline */}
-            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-gray-200">
+            <motion.h2 
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-gray-200"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
               Data Scientist & Machine Learning Engineer
-            </h2>
+            </motion.h2>
             
             {/* Description */}
-            <p className="text-sm sm:text-base md:text-lg text-gray-300 max-w-2xl leading-relaxed">
+            <motion.p 
+              className="text-sm sm:text-base md:text-lg text-gray-300 max-w-2xl leading-relaxed"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
               Transforming complex data into actionable insights using advanced analytics, 
               machine learning, and AI to drive business innovation and strategic decision-making.
-            </p>
+            </motion.p>
             
             {/* Call to Action */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 w-full sm:w-auto">
-              <button className="bg-gradient-to-r from-blue-500/60 via-purple-500/60 to-orange-400/60 hover:from-blue-600/70 hover:via-purple-600/70 hover:to-orange-500/70 backdrop-blur-sm text-white font-semibold py-3 px-6 sm:px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg text-sm sm:text-base w-full sm:w-auto">
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 w-full sm:w-auto"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+            >
+              <motion.button 
+                className="bg-gradient-to-r from-purple-500/60 to-orange-400/60 hover:from-purple-600/70 hover:to-orange-500/70 backdrop-blur-sm text-white font-semibold py-3 px-6 sm:px-8 rounded-full transition-all duration-300 shadow-lg text-sm sm:text-base w-full sm:w-auto"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 Me contacter
-              </button>
-              <button className="border-2 border-white/30 hover:border-white/50 text-white font-semibold py-3 px-6 sm:px-8 rounded-full transition-all duration-300 hover:bg-white/10 backdrop-blur-sm text-sm sm:text-base w-full sm:w-auto">
+              </motion.button>
+              <motion.button 
+                className="border-2 border-purple-400/30 hover:border-purple-400/60 text-white font-semibold py-3 px-6 sm:px-8 rounded-full transition-all duration-300 hover:bg-purple-400/10 backdrop-blur-sm text-sm sm:text-base w-full sm:w-auto"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 Voir mes projets
-              </button>
-            </div>
-          </div>
+              </motion.button>
+            </motion.div>
+          </motion.div>
         </main>
       </div>
     </div>
