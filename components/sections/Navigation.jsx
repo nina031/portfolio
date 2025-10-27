@@ -120,7 +120,10 @@ export default function Navigation() {
         >
           {isMobileMenuOpen && (
             <motion.div
-              className="bg-black/90 backdrop-blur-md border-t border-white/10"
+              className="backdrop-blur-md border-t border-white/10"
+              style={{
+                background: 'linear-gradient(to bottom, rgba(15, 15, 35, 0.95), rgba(26, 26, 46, 0.95), rgba(22, 33, 62, 0.95))'
+              }}
               initial={{ y: -20 }}
               animate={{ y: 0 }}
               transition={{ duration: 0.3 }}
@@ -130,9 +133,14 @@ export default function Navigation() {
                   <motion.a
                     key={item.href}
                     href={item.href}
-                    className={`block ${navLinkClasses}`}
-                    whileHover={{ scale: 1.02, x: 5 }}
-                    whileTap={{ scale: 0.98 }}
+                    className="block text-white font-medium px-4 py-2 transition-colors duration-300"
+                    whileHover={{
+                      color: "#a78bfa"
+                    }}
+                    whileTap={{
+                      color: "#c084fc"
+                    }}
+                    onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {item.label}
                   </motion.a>
