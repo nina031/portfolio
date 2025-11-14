@@ -92,7 +92,7 @@ export default function Projects() {
 			],
 			year: translations.projects.aitrends.year,
 			location: translations.projects.aitrends.location,
-			link: "https://first-app-func-front.vercel.app/",
+			link: "https://github.com/nina031",
 			githubLink: "https://github.com/nina031",
 			image: "/AI-veille-techno.png",
 		}
