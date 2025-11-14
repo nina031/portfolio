@@ -28,7 +28,7 @@ export const fr = {
     email: "Email",
     emailValue: "messaoudinina55@gmail.com",
     phone: "Téléphone",
-    phoneValue: "(+33) 6 82 69 71 32",
+    phoneValue: "(+33) 7 66 53 77 59",
     languages: "Langues",
     languagesValue: "Français (natif), Anglais (C1)",
     cvShort: "CV (version courte)",
